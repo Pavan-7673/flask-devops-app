@@ -29,7 +29,7 @@ pipeline {
                 sh '''
                 docker stop flask-container || true
                 docker rm flask-container || true
-                docker run -d -p 5002:5002 --name flask-container flask-app
+                docker run -d -p 5002:5002 --name flask-container flask-app'''
             }
         }
     }
