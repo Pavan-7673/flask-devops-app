@@ -23,5 +23,14 @@ pipeline {
                 sh 'docker run -d -p 5002:5000 --name flask-container flask-app'
             }
         }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                docker stop flask-container || true
+                docker rm flask-container || true
+                docker run -d -p 5002:5002 --name flask-container flask-app
+            }
+        }
     }
 }
