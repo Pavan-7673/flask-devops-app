@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pavan App</title>
+</head>
+<body>
+  <h1>Frontend Page</h1>
+  <button onclick="callAPI()">Call Backend</button>
+
+  <p id="result"></p>
+
+  <script>
+    function callAPI() {
+      fetch("http://localhost:5000/")
+        .then(res => res.text())
+        .then(data => {
+          document.getElementById("result").innerText = data;
+        })
+        .catch(err => {
+          console.log(err)
+        });
+    }
+  </script>
+</body>
+</html>
